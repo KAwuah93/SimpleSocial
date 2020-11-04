@@ -52,8 +52,8 @@ class MainActivity : AppCompatActivity() {
             //currently creating the object
 
             var userBundle = SimpleSocialUser(
-                "",
-                "",
+                "John",
+                "Doe",
                 viewModel.username,
                 viewModel.password,
                 "",
