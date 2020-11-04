@@ -1,7 +1,9 @@
 package com.example.simplesocial.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -33,5 +35,10 @@ class HomeScreenActivity : AppCompatActivity() {
 
         var t = Toast.makeText(this,viewModel.loggedUser.username,Toast.LENGTH_LONG)
         t.show()
+    }
+
+    fun onClick(v : View){
+        val intent = Intent(this,SettingsActivity::class.java)
+        startActivity(intent)
     }
 }
