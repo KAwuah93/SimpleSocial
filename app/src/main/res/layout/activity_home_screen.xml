@@ -38,8 +38,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/home_btn_logout"
-        android:drawableLeft="@drawable/ic_baseline_settings_24"
+        android:drawableStart="@drawable/ic_baseline_settings_24"
         app:layout_constraintHorizontal_weight="1"
+        android:layout_width="0dp"
+        android:onClick="onClick"
         android:layout_height="wrap_content" />
     <Button
         android:id="@+id/home_btn_logout"
@@ -48,7 +50,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/home_btn_Settings"
         app:layout_constraintHorizontal_weight="1"
-        android:onClick="onClick"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
