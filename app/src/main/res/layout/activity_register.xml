@@ -7,44 +7,45 @@
     tools:context=".view.RegisterActivity">
 
     <EditText
-        android:id="@+id/fNameField"
+        android:id="@+id/register_et_fname"
         android:hint="First Name"
         android:layout_width="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_height="wrap_content"/>
     <EditText
-        android:id="@+id/lNameField"
+        android:id="@+id/register_et_lname"
         android:hint="Last Name"
-        app:layout_constraintTop_toBottomOf="@+id/fNameField"
+        app:layout_constraintTop_toBottomOf="@+id/register_et_fname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <EditText
-        android:id="@+id/etxtUserNameField"
+        android:id="@+id/register_et_username"
         android:hint="Username"
-        app:layout_constraintTop_toBottomOf="@+id/lNameField"
+        app:layout_constraintTop_toBottomOf="@+id/register_et_lname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <EditText
-        android:id="@+id/etxtPassword1"
+        android:id="@+id/register_et_password"
         android:hint="Password"
-        app:layout_constraintTop_toBottomOf="@id/etxtUserNameField"
+        app:layout_constraintTop_toBottomOf="@id/register_et_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <EditText
-        android:id="@+id/etxtPassword2"
+        android:id="@+id/register_et_verify"
         android:hint="Verify Password"
-        app:layout_constraintTop_toBottomOf="@id/etxtPassword1"
+        app:layout_constraintTop_toBottomOf="@+id/register_et_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <EditText
-        android:id="@+id/etxtEmail"
+        android:id="@+id/register_et_email"
         android:hint="Email"
-        app:layout_constraintTop_toBottomOf="@id/etxtPassword2"
+        app:layout_constraintTop_toBottomOf="@+id/register_et_verify"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <Button
         android:text="Register and Login"
-        android:id="@+id/btnRegisterPush"
+        android:id="@+id/register_btn_confirm"
         android:onClick="onClick"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_width="match_parent"

@@ -13,6 +13,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     fun onClick(v : View){
+        //create the object and then send it to the viewModel for the next activity.
         val intent = Intent(this, HomeScreenActivity::class.java)
         startActivity(intent)
     }
