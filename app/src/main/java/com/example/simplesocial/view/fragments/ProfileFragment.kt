@@ -52,21 +52,20 @@ class ProfileFragment : Fragment() {
         // Inflate the layout for this fragment
         //val view = inflater.inflate(R.layout.fragment_proflie, container, false)
         // model.user.value = arguments?.get("user") as SimpleSocialUser
-        var binding : FragmentProflieBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_proflie, container, false)
-        val view = binding.root
+        val binding : FragmentProflieBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_proflie, container, false)
+
         Log.d(TAG, "onCreateView: ${arguments?.get("user").toString()}")
         val users = arguments?.get("user") as SimpleSocialUser
         binding.root.findViewById<TextView>(R.id.ProfileFrag_tv_username).text = users.username
-        binding.viewModel?.user?.value = arguments?.get("user") as SimpleSocialUser
         model.user.value = arguments?.get("user") as SimpleSocialUser
-        return view
+        binding.viewModel = model
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val binding = FragmentProflieBinding.bind(view)
-
+        //val binding = FragmentProflieBinding.bind(view)
     }
 
     companion object {
