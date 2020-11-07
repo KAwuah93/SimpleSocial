@@ -11,6 +11,8 @@ import com.example.simplesocial.R
 import com.example.simplesocial.databinding.ActivityHomeScreenBinding
 
 import com.example.simplesocial.model.data.SimpleSocialUser
+import com.example.simplesocial.view.fragments.LoginFragment
+import com.example.simplesocial.view.fragments.ProfileFragment
 import com.example.simplesocial.viewmodel.ProfileViewModel
 
 class HomeScreenActivity : AppCompatActivity() {
@@ -31,10 +33,14 @@ class HomeScreenActivity : AppCompatActivity() {
         //pulling the user from the bundle
         //todo make sure that you have some level of
         var bundle : Bundle? = intent.extras
-        viewModel.loggedUser = bundle?.get("user") as SimpleSocialUser
-
-        var t = Toast.makeText(this,viewModel.loggedUser.username,Toast.LENGTH_LONG)
-        t.show()
+        viewModel.user.value = bundle?.get("user") as SimpleSocialUser
+        bundle?.get("user")?.let {
+            val firstFragment = ProfileFragment.newInstance(it as SimpleSocialUser)
+            //firstFragment.arguments = intent.extras
+            val transaction = supportFragmentManager.beginTransaction()
+            transaction.add(R.id.Home_fv_screen, firstFragment)
+            transaction.commit()
+        }
     }
 
     fun onClick(v : View){

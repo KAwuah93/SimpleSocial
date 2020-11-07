@@ -7,51 +7,8 @@
             name="viewModel"
             type="com.example.simplesocial.viewmodel.ProfileViewModel" />
     </data>
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/txtProfile"
-        android:textSize="24sp"
-        android:text="@={viewModel.loggedUser.username}"
-        app:layout_constraintTop_toTopOf="parent"
+    <FrameLayout
+        android:id="@+id/Home_fv_screen"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:id="@+id/txtFName"
-        android:textSize="24sp"
-        android:text="@={viewModel.loggedUser.FName}"
-        app:layout_constraintTop_toBottomOf="@id/txtProfile"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:id="@+id/txtLName"
-        android:textSize="24sp"
-        android:text="@={viewModel.loggedUser.LName}"
-        app:layout_constraintTop_toBottomOf="@id/txtFName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <Button
-        android:id="@+id/home_btn_Settings"
-        android:text="Settings"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/home_btn_logout"
-        android:drawableStart="@drawable/ic_baseline_settings_24"
-        app:layout_constraintHorizontal_weight="1"
-        android:layout_width="0dp"
-        android:onClick="onClick"
-        android:layout_height="wrap_content" />
-    <Button
-        android:id="@+id/home_btn_logout"
-        android:text="Logout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/home_btn_Settings"
-        app:layout_constraintHorizontal_weight="1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"/>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent"/>
 </layout>
