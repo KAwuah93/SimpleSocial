@@ -128,7 +128,7 @@ class RegistrationFragment : Fragment() {
         return SimpleSocialUser(
             register_et_fname.text.toString(),
             register_et_lname.text.toString(),
-            register_et_password.text.toString(),
+            register_et_username.text.toString(),
             register_et_verify.text.toString(),
             register_et_email.text.toString(),
             register_et_birthday.text.toString()
