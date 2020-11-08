@@ -1,5 +1,6 @@
 package com.example.simplesocial.view.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.example.simplesocial.R
+import com.example.simplesocial.model.data.SimpleSocialUser
+import com.example.simplesocial.view.HomeScreenActivity
 import com.example.simplesocial.viewmodel.ProfileViewModel
 import kotlinx.android.synthetic.main.fragment_login.*
 
@@ -40,6 +43,17 @@ class LoginFragment : Fragment() {
         val loginBtn = LoginFrag_btn_Login
         loginBtn.setOnClickListener{
             // viewModel Verification method
+            val intent = Intent(activity,HomeScreenActivity::class.java)
+
+            //create test data just to send it off
+            var testData = SimpleSocialUser()
+            testData.fName = "Kwame"
+            testData.lName = "Awuah"
+            testData.username = "Kawuah93"
+
+            intent.putExtra("user",testData)
+
+            startActivity(intent)
         }
     }
 }
