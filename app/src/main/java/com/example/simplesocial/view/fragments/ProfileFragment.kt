@@ -1,20 +1,17 @@
 package com.example.simplesocial.view.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.simplesocial.R
 import com.example.simplesocial.databinding.FragmentProflieBinding
-import com.example.simplesocial.model.data.SimpleSocialUser
 import com.example.simplesocial.viewmodel.ProfileViewModel
+import kotlinx.android.synthetic.main.fragment_proflie.*
 
-private const val TAG = "ProfileFragment"
 
 class ProfileFragment : Fragment() {
     private val model: ProfileViewModel by activityViewModels()
@@ -24,21 +21,22 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding : FragmentProflieBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_proflie, container, false)
-        Log.d(TAG, "onCreateView: ${arguments?.get("user").toString()}")
-        val users = arguments?.get("user") as SimpleSocialUser
-        binding.root.findViewById<TextView>(R.id.ProfileFrag_tv_username).text = users.username
-        model.user.value = arguments?.get("user") as SimpleSocialUser
         binding.viewModel = model
         return binding.root
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance(user: SimpleSocialUser) =
-            ProfileFragment().apply {
-                arguments = Bundle().apply {
-                    putParcelable("user", user)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        //place the onclicks for the views
+        ProfileFrag_btn_Settings.setOnClickListener{
+            val fragment = SettingsFragment()
+            val fragmentManager = activity?.supportFragmentManager
+            val fragmentTransaction = fragmentManager!!.beginTransaction()
+            fragmentTransaction.replace(R.id.Home_fv_screen, fragment)
+            fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.commit()
+        }
     }
+
 }

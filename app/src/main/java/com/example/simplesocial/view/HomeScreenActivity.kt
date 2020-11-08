@@ -3,6 +3,7 @@ package com.example.simplesocial.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
@@ -20,10 +21,7 @@ class HomeScreenActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // setContentView(R.layout.activity_home_screen)
-
         //Create the viewModel and get the Data class from the Bundle
-        //Doing the ViewModel Thing
         viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
         var binding = DataBindingUtil.setContentView<ActivityHomeScreenBinding>(this,R.layout.activity_home_screen)
         // Needed for the changes we were making
@@ -35,7 +33,7 @@ class HomeScreenActivity : AppCompatActivity() {
         var bundle : Bundle? = intent.extras
         viewModel.user.value = bundle?.get("user") as SimpleSocialUser
         bundle?.get("user")?.let {
-            val firstFragment = ProfileFragment.newInstance(it as SimpleSocialUser)
+            val firstFragment = ProfileFragment()
             //firstFragment.arguments = intent.extras
             val transaction = supportFragmentManager.beginTransaction()
             transaction.add(R.id.Home_fv_screen, firstFragment)
