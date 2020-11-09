@@ -1,7 +1,6 @@
 package com.example.simplesocial.model.dagger
 
 import android.app.Application
-import com.example.simplesocial.model.repo.SimpleSocialRepository
 import com.example.simplesocial.model.repo.SimpleSocialUserDatabase
 import dagger.Module
 import dagger.Provides
