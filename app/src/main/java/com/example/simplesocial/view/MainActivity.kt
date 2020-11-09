@@ -13,11 +13,13 @@ import com.example.simplesocial.databinding.ActivityMainBinding
 import com.example.simplesocial.model.data.SimpleSocialUser
 import com.example.simplesocial.view.fragments.LoginFragment
 import com.example.simplesocial.viewmodel.ProfileViewModel
+import dagger.android.AndroidInjection
 
 class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: ProfileViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        //AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
 
 //        //Doing the ViewModel Thing

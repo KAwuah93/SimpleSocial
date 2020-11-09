@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.fragment_proflie.*
 
 
 class ProfileFragment : Fragment() {
-    //pulls instance of viewModel from the activity that it is bound to for data sharing
+    //pulls instance of viewModel from the activity that it is bound to for data sharingdd
     private val model: ProfileViewModel by activityViewModels()
 
     override fun onCreateView(

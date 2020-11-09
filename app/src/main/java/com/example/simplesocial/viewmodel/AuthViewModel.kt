@@ -1,13 +1,19 @@
 package com.example.simplesocial.viewmodel
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import com.example.simplesocial.model.dagger.AppModule
 import com.example.simplesocial.model.data.SimpleSocialUser
+import com.example.simplesocial.model.repo.SimpleSocialRepository
+import dagger.android.AndroidInjection
+import javax.inject.Inject
 
-class AuthViewModel : ViewModel(){
+class AuthViewModel(application: Application) : AndroidViewModel(application){
 
     // Centralize access to the data between the classes.
     // Todo auto inject Database
-
+    @Inject lateinit var simpleSocialRepository: SimpleSocialRepository
+    
     fun checkUser(user: String): Boolean {
         //do the search to make sure if username exists
         return false
@@ -19,6 +25,7 @@ class AuthViewModel : ViewModel(){
 
     fun registerUser(user : SimpleSocialUser){
         // take the returned User and Insert it into the database
+        simpleSocialRepository.registerUser(user)
 
         // Also save the user to SharedPref.
 
