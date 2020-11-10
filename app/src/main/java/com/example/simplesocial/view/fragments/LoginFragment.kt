@@ -42,6 +42,7 @@ class LoginFragment : Fragment() {
         // probably don't even need it can connect it directly to
         val loginBtn = LoginFrag_btn_Login
         loginBtn.setOnClickListener{
+            // todo have actual validation instead of this.
             // viewModel Verification method
             val intent = Intent(activity,HomeScreenActivity::class.java)
 

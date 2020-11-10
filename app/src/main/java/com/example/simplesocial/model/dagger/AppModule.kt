@@ -1,6 +1,7 @@
 package com.example.simplesocial.model.dagger
 
 import android.app.Application
+import com.example.simplesocial.model.repo.SimpleSocialRepository
 import com.example.simplesocial.model.repo.SimpleSocialUserDatabase
 import dagger.Module
 import dagger.Provides
@@ -16,5 +17,10 @@ class AppModule(val app: Application) {
     @Provides
     fun provideSimpleSocialUserDatabase(context: Application) : SimpleSocialUserDatabase{
         return SimpleSocialUserDatabase.getDatabase(context)
+    }
+
+    @Provides
+    fun provideRepository(){
+        return SimpleSocialRepository()
     }
 }

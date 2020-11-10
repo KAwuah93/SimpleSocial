@@ -1,19 +1,13 @@
 package com.example.simplesocial.view
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import com.example.simplesocial.R
 import com.example.simplesocial.databinding.ActivityMainBinding
-import com.example.simplesocial.model.data.SimpleSocialUser
 import com.example.simplesocial.view.fragments.LoginFragment
 import com.example.simplesocial.viewmodel.ProfileViewModel
-import dagger.android.AndroidInjection
 
 class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: ProfileViewModel
