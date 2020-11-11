@@ -37,6 +37,7 @@ class SettingsFragment : Fragment() {
     private fun bindButton(){
         Settings_btn_confirm.setOnClickListener {
             lifecycleScope.launch(Dispatchers.IO){model.updateUser()}
+            parentFragmentManager.popBackStack()
         }
     }
 }

@@ -29,8 +29,7 @@ class HomeScreenActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
-        //pulling the user from the bundle
-        //todo make sure that you have some level of
+        
         var bundle : Bundle? = intent.extras
         viewModel.user.value = bundle?.get("user") as SimpleSocialUser
         bundle?.get("user")?.let {

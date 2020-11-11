@@ -108,21 +108,15 @@ class RegistrationFragment : Fragment() {
                         }
 
                     } else {
-                        val usernameHint = Toast.makeText(activity, "Username has been taken!", Toast.LENGTH_LONG)
-                        usernameHint.show()
+                        register_tv_hint.text = "Username has been taken!"
                     }
                 } else {
-                    val passwordHint = Toast.makeText(
-                        activity,"Verify Passwords are the same", Toast.LENGTH_LONG)
-                    passwordHint.show()
+                    register_tv_hint.text = "Verify Passwords are the same."
                 }
 
             } else {
-                val formHint = Toast.makeText(activity,"Please fill out the form", Toast.LENGTH_LONG)
-                formHint.show()
+                register_tv_hint.text = "Please fill out the form!"
             }
-
-
         }
     }
 }

@@ -30,8 +30,7 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val v = inflater.inflate(R.layout.fragment_login, container, false)
-        return v
+        return inflater.inflate(R.layout.fragment_login, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -69,18 +68,18 @@ class LoginFragment : Fragment() {
                         loginFrag_et_password.text.toString()
                     )
                     withContext(Dispatchers.Main){
-
                         if (data != null) {
                             val intent = Intent(activity, HomeScreenActivity::class.java)
 
                             intent.putExtra("user", data)
                             startActivity(intent)
+                        } else {
+                            loginFrag_tv_hint.text = "Please check Login info!"
                         }
                     }
                 } catch (e : Exception){
                     Log.e("ASYNC", "$e")
                 }
-
             }
         }
     }

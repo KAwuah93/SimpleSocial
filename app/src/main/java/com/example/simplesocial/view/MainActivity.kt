@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         // writing to shared pref
         val cachedUser : String? = sharedpref.getString("username","DEFAULT")
         if (cachedUser.equals("DEFAULT")){
-            // move forward to the 
+            // move forward to the
         }
     }
 }

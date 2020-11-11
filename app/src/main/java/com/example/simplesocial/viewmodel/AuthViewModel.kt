@@ -14,8 +14,6 @@ import javax.inject.Inject
 
 class AuthViewModel() : ViewModel(){
 
-    // Centralize access to the data between the classes.
-    // Todo auto inject Database
     @Inject lateinit var simpleSocialRepository: SimpleSocialRepository
 
     init {
@@ -43,10 +41,6 @@ class AuthViewModel() : ViewModel(){
 
     suspend fun registerUser(user : SimpleSocialUser){
         simpleSocialRepository.registerUser(user)
-    }
-
-    fun warnUser(){
-
     }
 
 }
