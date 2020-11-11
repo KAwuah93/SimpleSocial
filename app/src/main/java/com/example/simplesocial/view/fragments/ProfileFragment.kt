@@ -1,6 +1,10 @@
 package com.example.simplesocial.view.fragments
 
+import android.app.Activity
+import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,7 +37,7 @@ class ProfileFragment : Fragment() {
 
     // onbind for both views
     private fun bindButtons() {
-        ProfileFrag_btn_Settings.setOnClickListener{
+        ProfileFrag_btn_Settings.setOnClickListener {
             val fragment = SettingsFragment()
             val fragmentManager = activity?.supportFragmentManager
             val fragmentTransaction = fragmentManager!!.beginTransaction()
@@ -42,9 +46,26 @@ class ProfileFragment : Fragment() {
             fragmentTransaction.commit()
         }
 
-        ProfileFrag_btn_logout.setOnClickListener{
+        ProfileFrag_btn_logout.setOnClickListener {
             // delete the entry in the shared preference with a null check and then send back to login screen
 
+        }
+
+        ProfileFrag_img_avi.setOnClickListener {
+        capturePhoto()
+        }
+    }
+
+    fun capturePhoto() {
+
+        val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        startActivityForResult(cameraIntent, 200)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK && requestCode == 200 && data != null){
+            ProfileFrag_img_avi.setImageBitmap(data.extras?.get("data") as Bitmap)
         }
     }
 

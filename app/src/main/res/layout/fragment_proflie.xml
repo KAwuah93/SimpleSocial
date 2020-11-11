@@ -10,11 +10,19 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/ProfileFrag_img_avi"
+            android:src="@color/dark_khaki"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="150dp"
+            android:layout_height="150dp"/>
         <TextView
             android:id="@+id/ProfileFrag_tv_username"
             android:textSize="24sp"
             android:text="@={viewModel.user.username}"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ProfileFrag_img_avi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <TextView
