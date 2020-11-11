@@ -16,7 +16,7 @@ import javax.inject.Inject
 class AuthViewModel() : ViewModel(){
 
     @Inject lateinit var simpleSocialRepository: SimpleSocialRepository
-    lateinit var injector : MainAppComponent
+    var injector : MainAppComponent
 
     init {
         injector = ApplicationSingleton.applicationComponent

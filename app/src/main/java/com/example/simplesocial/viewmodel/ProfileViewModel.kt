@@ -14,11 +14,10 @@ class ProfileViewModel(): ViewModel() {
 
     @Inject
     lateinit var simpleSocialRepository: SimpleSocialRepository
-
-    @Inject
-    lateinit var mainAppComponent: MainAppComponent
+    var mainAppComponent: MainAppComponent
 
     init {
+        mainAppComponent = ApplicationSingleton.applicationComponent
         mainAppComponent.inject(this)
     }
 

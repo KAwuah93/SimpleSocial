@@ -11,7 +11,6 @@ import org.junit.runner.RunWith
 import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.Mockito.*
-import org.mockito.MockitoAnnotations
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
@@ -28,7 +27,6 @@ class AuthViewModelUT() {
     @InjectMocks
     var model = getDummy()
 
-
     @Test
     fun checkUserDoesExit() = runBlocking{
 
@@ -43,8 +41,8 @@ class AuthViewModelUT() {
 
     @Test
     fun verifyUser() = runBlocking{
-        var x = "x"
-        var y = "y"
+        val x = "x"
+        val y = "y"
 
         `when`(simpleSocialRepository.loginAuth(x,y)).thenReturn(dummyUser())
 
