@@ -2,6 +2,7 @@ package com.example.simplesocial.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.simplesocial.model.dagger.MainAppComponent
 import com.example.simplesocial.model.data.SimpleSocialUser
 import com.example.simplesocial.model.repo.SimpleSocialRepository
 import com.example.simplesocial.util.ApplicationSingleton
@@ -15,9 +16,11 @@ import javax.inject.Inject
 class AuthViewModel() : ViewModel(){
 
     @Inject lateinit var simpleSocialRepository: SimpleSocialRepository
+    lateinit var injector : MainAppComponent
 
     init {
-        ApplicationSingleton.applicationComponent.inject(this)
+        injector = ApplicationSingleton.applicationComponent
+        injector.inject(this)
     }
     fun checkUser(user: String): Boolean {
         //do the search to make sure if username exists

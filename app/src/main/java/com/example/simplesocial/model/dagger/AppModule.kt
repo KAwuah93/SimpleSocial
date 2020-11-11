@@ -4,6 +4,7 @@ import android.app.Application
 import com.example.simplesocial.model.repo.SimpleSocialDao
 import com.example.simplesocial.model.repo.SimpleSocialRepository
 import com.example.simplesocial.model.repo.SimpleSocialUserDatabase
+import com.example.simplesocial.util.ApplicationSingleton
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

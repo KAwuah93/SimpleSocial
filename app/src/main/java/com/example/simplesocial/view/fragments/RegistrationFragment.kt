@@ -96,6 +96,7 @@ class RegistrationFragment : Fragment() {
                 )){
                 if(TextUtils.equals(register_et_password.text,register_et_verify.text)){
                     // check if username exists
+
                     if(model.checkUser(register_et_username.toString())){
                         val newUser = generateUser()
                         runBlocking {

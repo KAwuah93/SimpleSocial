@@ -2,6 +2,7 @@ package com.example.simplesocial.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.simplesocial.model.dagger.MainAppComponent
 import com.example.simplesocial.model.data.SimpleSocialUser
 import com.example.simplesocial.model.repo.SimpleSocialRepository
 import com.example.simplesocial.util.ApplicationSingleton
@@ -14,8 +15,11 @@ class ProfileViewModel(): ViewModel() {
     @Inject
     lateinit var simpleSocialRepository: SimpleSocialRepository
 
+    @Inject
+    lateinit var mainAppComponent: MainAppComponent
+
     init {
-        ApplicationSingleton.applicationComponent.inject(this)
+        mainAppComponent.inject(this)
     }
 
     // using this to sync the data created

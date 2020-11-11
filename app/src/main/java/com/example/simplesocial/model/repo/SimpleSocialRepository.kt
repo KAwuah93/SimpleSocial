@@ -1,6 +1,5 @@
 package com.example.simplesocial.model.repo
 
-import androidx.lifecycle.LiveData
 import com.example.simplesocial.model.data.SimpleSocialUser
 
 class SimpleSocialRepository (private val simpleSocialDao: SimpleSocialDao){
