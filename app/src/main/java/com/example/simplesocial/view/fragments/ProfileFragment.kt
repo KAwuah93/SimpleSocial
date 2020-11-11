@@ -28,8 +28,11 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        bindButtons()
+    }
 
-        //place the onclicks for the views
+    // onbind for both views
+    private fun bindButtons() {
         ProfileFrag_btn_Settings.setOnClickListener{
             val fragment = SettingsFragment()
             val fragmentManager = activity?.supportFragmentManager
@@ -37,6 +40,11 @@ class ProfileFragment : Fragment() {
             fragmentTransaction.replace(R.id.Home_fv_screen, fragment)
             fragmentTransaction.addToBackStack(null)
             fragmentTransaction.commit()
+        }
+
+        ProfileFrag_btn_logout.setOnClickListener{
+            // delete the entry in the shared preference with a null check and then send back to login screen
+
         }
     }
 

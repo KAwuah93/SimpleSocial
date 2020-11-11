@@ -3,6 +3,7 @@ package com.example.simplesocial.model.dagger
 import com.example.simplesocial.view.HomeScreenActivity
 import com.example.simplesocial.view.MainActivity
 import com.example.simplesocial.viewmodel.AuthViewModel
+import com.example.simplesocial.viewmodel.ProfileViewModel
 import dagger.Component
 
 @Component(
@@ -14,4 +15,5 @@ interface MainAppComponent {
     fun inject(viewModel : AuthViewModel)
     fun inject(activity: MainActivity)
     fun inject(activity: HomeScreenActivity)
+    fun inject(activity: ProfileViewModel)
 }

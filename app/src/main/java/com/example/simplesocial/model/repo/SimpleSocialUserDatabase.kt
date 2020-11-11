@@ -6,8 +6,12 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.simplesocial.model.data.SimpleSocialUser
 
-@Database(version = 1, entities = [SimpleSocialUser::class])
+@Database(
+    version = 1,
+    entities = [SimpleSocialUser::class]
+)
 abstract class SimpleSocialUserDatabase : RoomDatabase() {
+
     abstract fun simpleSocialDao() : SimpleSocialDao
 
     companion object{

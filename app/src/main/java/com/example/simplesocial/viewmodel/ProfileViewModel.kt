@@ -1,22 +1,29 @@
 package com.example.simplesocial.viewmodel
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.simplesocial.MainApplication
 import com.example.simplesocial.model.data.SimpleSocialUser
+import com.example.simplesocial.model.repo.SimpleSocialRepository
+import com.example.simplesocial.util.ApplicationSingleton
+import javax.inject.Inject
 
-class ProfileViewModel(application: Application): AndroidViewModel(application) {
+class ProfileViewModel(): ViewModel() {
     // This is where the User data used across the application would be stored
     var user = MutableLiveData<SimpleSocialUser>()
+
+    @Inject
+    lateinit var simpleSocialRepository: SimpleSocialRepository
+
+    init {
+        ApplicationSingleton.applicationComponent.inject(this)
+    }
 
     // using this to sync the data created
     fun select(selectedUser : SimpleSocialUser){
         user.value = selectedUser
     }
 
-    fun updateUser(user: String){
-        // take the username of the current user and do a query + overwrite with Corutines
+    suspend fun updateUser(){
+        simpleSocialRepository.updateUser(user.value!!)
     }
 }

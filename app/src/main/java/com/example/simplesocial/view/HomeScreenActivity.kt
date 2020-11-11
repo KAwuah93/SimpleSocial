@@ -1,5 +1,6 @@
 package com.example.simplesocial.view
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -38,11 +39,12 @@ class HomeScreenActivity : AppCompatActivity() {
             val transaction = supportFragmentManager.beginTransaction()
             transaction.add(R.id.Home_fv_screen, firstFragment)
             transaction.commit()
+
+            val sharedpref = this.getSharedPreferences("pref", Context.MODE_PRIVATE)
+            // writing to shared pref
+            sharedpref.edit().putString("username",viewModel.user.value!!.username).apply()
+            sharedpref.edit().putString("password",viewModel.user.value!!.password).apply()
         }
     }
 
-    fun onClick(v : View){
-        val intent = Intent(this,SettingsActivity::class.java)
-        startActivity(intent)
-    }
 }

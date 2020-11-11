@@ -6,6 +6,8 @@ import com.example.simplesocial.model.data.SimpleSocialUser
 import com.example.simplesocial.model.repo.SimpleSocialRepository
 import com.example.simplesocial.util.ApplicationSingleton
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
@@ -22,7 +24,10 @@ class AuthViewModel() : ViewModel(){
     fun checkUser(user: String): Boolean {
         //do the search to make sure if username exists
         var exist = 0
-        viewModelScope.launch { exist = simpleSocialRepository.userCountCheck(user) }
+        CoroutineScope(IO).launch{
+                exist = simpleSocialRepository.userCountCheck(user)
+            //delay(1000)
+        }
 
         if (exist == 0) {
             return true
@@ -30,16 +35,18 @@ class AuthViewModel() : ViewModel(){
         return false
     }
 
-    fun verifyUser(u : String, p : String){
+    suspend fun verifyUser(u : String, p : String) : SimpleSocialUser{
         // check if the user name and password matches in the database
+        val user = simpleSocialRepository.loginAuth(u,p)
+        return user
     }
 
     suspend fun registerUser(user : SimpleSocialUser){
-        // take the returned User and Insert it into the database
         simpleSocialRepository.registerUser(user)
-
-        // Also save the user to SharedPref.
-
-        // Send the User to the HomeScreen Activity after you are done
     }
+
+    fun warnUser(){
+
+    }
+
 }

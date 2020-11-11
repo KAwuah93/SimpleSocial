@@ -13,23 +13,21 @@
         android:padding="20dp">
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/loginFrag_et_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:text="@={viewModel.username}"
             android:inputType="textPersonName"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/editTextPassword"
+            app:layout_constraintBottom_toTopOf="@+id/loginFrag_et_password"
             android:hint="Username"/>
 
         <EditText
-            android:id="@+id/editTextPassword"
+            android:id="@+id/loginFrag_et_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:text="@={viewModel.password}"
             android:inputType="textPassword"
             android:hint="Password"
             app:layout_constraintBottom_toTopOf="@id/LoginFrag_btn_Login"
@@ -39,7 +37,6 @@
         <Button
             android:id="@+id/LoginFrag_btn_Login"
             android:text="Login"
-
             app:layout_constraintBottom_toTopOf="@id/LoginFrag_tv_or"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

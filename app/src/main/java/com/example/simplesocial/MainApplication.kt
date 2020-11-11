@@ -7,8 +7,6 @@ import com.example.simplesocial.model.dagger.MainAppComponent
 import com.example.simplesocial.util.ApplicationSingleton
 
 class MainApplication : Application() {
-
-
     private lateinit var mainAppComponent: MainAppComponent
 
     override fun onCreate() {

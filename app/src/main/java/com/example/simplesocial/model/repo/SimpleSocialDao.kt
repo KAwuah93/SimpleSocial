@@ -1,6 +1,5 @@
 package com.example.simplesocial.model.repo
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -15,13 +14,13 @@ interface SimpleSocialDao {
 
     //update user
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun updateUser(user: SimpleSocialUser)
+    suspend fun updateUser(user: SimpleSocialUser)
 
     // fetch username and password Note: Could use 'livedata' if you write over the data through some other service
     @Query("SELECT * FROM simpleSocialUser_table where username = :selectedUsername AND password = :selectedPassword")
-    fun fetchUser(selectedUsername : String, selectedPassword : String) : SimpleSocialUser
+    suspend fun fetchUser(selectedUsername : String, selectedPassword : String) : SimpleSocialUser
 
     //get the user
     @Query("SELECT COUNT(*) FROM simpleSocialUser_table where username = :passedUsername")
-    fun getUserCount(passedUsername : String): Int
+    suspend fun getUserCount(passedUsername : String): Int
 }

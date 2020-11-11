@@ -1,5 +1,6 @@
 package com.example.simplesocial.view
 
+import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -13,13 +14,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: ProfileViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        //AndroidInjection.inject(this)
+
         super.onCreate(savedInstanceState)
 
-//        //Doing the ViewModel Thing
         viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
         var binding = DataBindingUtil.setContentView<ActivityMainBinding>(this,R.layout.activity_main)
-//        // Needed for the changes we were making
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
@@ -31,5 +30,11 @@ class MainActivity : AppCompatActivity() {
         transaction.add(R.id.main_fl_screen,firstFragment)
         transaction.commit()
 
+        val sharedpref = this.getSharedPreferences("pref", Context.MODE_PRIVATE)
+        // writing to shared pref
+        val cachedUser : String? = sharedpref.getString("username","DEFAULT")
+        if (cachedUser.equals("DEFAULT")){
+            // move forward to the 
+        }
     }
 }
