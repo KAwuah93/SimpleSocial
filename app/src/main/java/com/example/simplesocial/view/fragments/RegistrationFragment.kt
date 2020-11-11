@@ -10,11 +10,15 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import com.example.simplesocial.R
 import com.example.simplesocial.model.data.SimpleSocialUser
 import com.example.simplesocial.view.HomeScreenActivity
 import com.example.simplesocial.viewmodel.AuthViewModel
 import kotlinx.android.synthetic.main.fragment_registration.*
+import kotlinx.coroutines.runBlocking
+import javax.inject.Inject
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,7 +35,10 @@ class RegistrationFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-    private val model: AuthViewModel by activityViewModels()
+    //private val model: AuthViewModel by activityViewModels()
+    @Inject
+    lateinit var factory: ViewModelProvider.Factory
+    lateinit var model : AuthViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +46,8 @@ class RegistrationFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+        model = ViewModelProvider(this).get(AuthViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -70,9 +79,12 @@ class RegistrationFragment : Fragment() {
                 if(TextUtils.equals(register_et_password.text,register_et_verify.text)){
                     // rest of verification
                     // check if username exists
+
                     if(!model.checkUser(register_et_username.toString())){
                         val newUser = generateUser()
-                        model.registerUser(newUser)
+                        runBlocking {
+                            model.registerUser(newUser)
+                        }
 
                         //send the new user to the next Activity/Fragment bundle
                         val intent = Intent(activity, HomeScreenActivity::class.java)
